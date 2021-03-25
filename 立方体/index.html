@@ -10,18 +10,48 @@
       --box-height: 180px;
       --translate-length: 90px;
       --border-radius: 50% 50%;
+
+      --box-width1: 119px;
+      --box-height1: 180px;
     }
   </style>
+  <link rel="icon" type="image/png" sizes="184x184" href="./icon/icon.jpeg"/>
   <link rel="stylesheet" href="./index.css">
 </head>
 <body>
-  <div id="app">
-    <div class="content top"><img src="./img/01.jpg" alt=""></div>
-    <div class="content bottom"><img src="./img/01.jpg" alt=""></div>
-    <div class="content left"><img src="./img/01.jpg" alt=""></div>
-    <div class="content rght"><img src="./img/01.jpg" alt=""></div>
-    <div class="content font"><img src="./img/01.jpg" alt=""></div>
-    <div class="content back"><img src="./img/01.jpg" alt=""></div>
+  <div id="app" class="app active">
+    <div><img src="./img/pic00.jpg" alt=""></div>
+    <div><img src="./img/pic01.jpg" alt=""></div>
+    <div><img src="./img/pic02.jpg" alt=""></div>
+    <div><img src="./img/pic03.jpg" alt=""></div>
+    <div><img src="./img/pic04.jpg" alt=""></div>
+    <div><img src="./img/pic05.jpg" alt=""></div>
+  </div>
+  
+  <div id="app1" class="app active" style="display: none;">
+    <div><img src="./img/pic10.jpg" alt=""></div>
+    <div><img src="./img/pic11.jpg" alt=""></div>
+    <div><img src="./img/pic12.jpg" alt=""></div>
+    <div><img src="./img/pic13.jpg" alt=""></div>
+    <div><img src="./img/pic14.jpg" alt=""></div>
+    <div><img src="./img/pic15.jpg" alt=""></div>
+  </div>
+  <!-- 右侧隐藏菜单 -->
+  <div id="menu">
+    <div class="guide-icon"><img src="./icon/icon.jpeg" alt=""></div>
+    <ul>
+      <li>背景图</li>
+      <li>图片源</li>
+      <li>暂  停</li>
+      <li>动 画</li>
+      <li>嘿咻~待开发</li>
+      <li>嘿咻~待开发</li>
+    </ul>
+  </div>
+  <!-- 背景图 -->
+  <div id="bg-img">
+    <img src="./bg-image/background3.png" alt="">
   </div>
 </body>
+<script src="./index.js"></script>
 </html>

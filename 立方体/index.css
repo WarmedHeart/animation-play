@@ -1,31 +1,45 @@
-body {
-  perspective: 2000px;
+* {
+  border: 0px;
+  margin: 0px;
 }
+div {
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 2000px;
+  position: relative;
+}
+/* 中间主体 */
+.app {
+  transform-style: preserve-3d;
+  position: relative;
+}
+.app > div {
+  width: inherit;
+  height: inherit;
+  overflow: hidden;
+  position: absolute;
+  transition: all 3s;
+}
+.app > div > img {
+  width: 100%;
+  height: 100%;
+}
+/* 第一个动画 */
 #app {
   width: var(--box-width);
   height: var(--box-height);
-  transform-style: preserve-3d;
-  animation: run 5s linear infinite;
-  position: relative;
-  margin: 200px auto;
+  animation: rotat 8s linear infinite;
 }
-@keyframes run {
+@keyframes rotat {
   0%{transform: rotate3d(0,0,0,0deg);}
   25%{transform: rotate3d(0,0,1,90deg);}
   50%{transform: rotate3d(0,1,0,180deg);}
   75%{transform: rotate3d(0,1,1,270deg);}
   100%{transform: rotate3d(1,1,1,360deg);}
-}
-#app > div {
-  width: var(--box-width);
-  height: var(--box-height);
-  overflow: hidden;
-  position: absolute;
-  transition: all 3s;
-}
-#app > div > img {
-  width: 100%;
-  height: 100%;
 }
 /* 上面 */
 #app > div:nth-child(1) {
@@ -81,4 +95,133 @@ body {
 #app:hover > div:nth-child(6) {
   transform: translateZ(calc(var(--translate-length) * -2));
   border-radius: var(--border-radius);
+}
+
+/* 第二个动画 */
+#app1 {
+  width: var(--box-width1);
+  height: var(--box-height1);
+  animation: anim1 15s linear infinite;
+}
+@keyframes anim1 {
+  from{
+    transform: rotateY(0deg);
+  }
+  to{
+    transform: rotateY(360deg);
+  }
+}
+#app1 div:nth-child(1) {
+  transform: translateZ(300px);
+}
+#app1 div:nth-child(2) {
+  transform: rotateY(60deg) translateZ(300px);
+}
+#app1 div:nth-child(3) {
+  transform: rotateY(120deg) translateZ(300px);
+}
+#app1 div:nth-child(4) {
+  transform: rotateY(180deg) translateZ(300px);
+}
+#app1 div:nth-child(5) {
+  transform: rotateY(240deg) translateZ(300px);
+}
+#app1 div:nth-child(6) {
+  transform: rotateY(300deg) translateZ(300px);
+}
+#app1:hover div:nth-child(1) {
+  transform: translateZ(450px);
+}
+#app1:hover div:nth-child(2) {
+  transform: rotateY(60deg) translateZ(450px);
+}
+#app1:hover div:nth-child(3) {
+  transform: rotateY(120deg) translateZ(450px);
+}
+#app1:hover div:nth-child(4) {
+  transform: rotateY(180deg) translateZ(450px);
+}
+#app1:hover div:nth-child(5) {
+  transform: rotateY(240deg) translateZ(450px);
+}
+#app1:hover div:nth-child(6) {
+  transform: rotateY(300deg) translateZ(450px);
+}
+/* 背景图 */
+#bg-img {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: 0 auto;
+  background: url("./bg-image/background1.png") no-repeat;
+  background-size: cover;
+  /* opacity: 0.8; */
+  z-index: -1;
+}
+#bg-img img {
+  height: 100%;
+}
+/* 右侧菜单 */
+#menu {
+  position: fixed;
+  right: 25px;
+  background-color: wheat;
+  border-radius: 10px;
+  height: 70px;
+  width: 70px;
+  overflow: hidden;
+  transition: all 2s ease;
+}
+#menu:hover {
+  height: 304px;
+  width: 100px;
+  right: 10px;
+  /* transform: translateX(120px); */
+}
+.guide-icon {
+  width: 50px;
+  height: 50px;
+  background-color: #c0c4cc;
+  border-radius: 50%;
+  margin: 10px auto;
+  overflow: hidden;
+}
+.guide-icon img {
+  width: 100%;
+  height: 100%;
+}
+#menu ul {
+  list-style:none;
+  margin: 0px;
+  padding: 0px;
+  width: 100px;
+  text-align: center;
+  font-size: 13px;
+}
+#menu ul li {
+  box-sizing: border-box;
+  width: 90px;
+  margin: 10px auto;
+  padding: 5px;
+  color: #409eff;
+  background: #ecf5ff;
+  border: 1px #b3d8ff solid;
+  border-radius: 4px;
+}
+#menu ul li:hover {
+  cursor: pointer;
+  color: #fff;
+  background-color: #409eff;
+  border-color: #409eff;
+}
+
+.active {
+  animation-play-state: running !important;
+}
+.paused {
+  animation-play-state: paused !important;
 }
