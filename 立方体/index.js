@@ -10,11 +10,6 @@
   // 自定义变量
   var imgNameList = "./img/pic0";
   // 方法
-  // 使body的宽高占满屏幕
-  let init = function() {
-    $body.style.width = window.innerWidth + "px";
-    $body.style.height = window.innerHeight + "px";
-  };
   // 切换背景图片(闭包)
   let switchBGImg = function() {
     let num = 0;
@@ -77,7 +72,6 @@
   };
 
   let initController = function() {
-    init();
     bindEvent();
   }
   initController();
