@@ -49,7 +49,8 @@
     }
   };
   let switchPicSource = function() {
-    imgNameList = "./img/pic" + (imgNameList[imgNameList.length -1] === "0" ? "1" : "0");
+    imgNameList
+      = "./img/pic" + (imgNameList[imgNameList.length -1] !== "2" ? (Number(imgNameList[imgNameList.length -1]) +1) : "0");
     console.log(imgNameList);
     for( index in $imgList ) {
       $imgList[index].src = imgNameList + (Number(index) % 6) + ".jpg";
